@@ -28,5 +28,5 @@ jobs:
         D:\tmp\texlive\bin\win32\tlmgr.bat update --self
         D:\tmp\texlive\bin\win32\tlmgr.bat install latex-bin platex uplatex tex xetex
         D:\tmp\texlive\bin\win32\tlmgr.bat install amsmath graphics tools
-        D:\tmp\texlive\bin\win32\pdflatex t.tex
+        pdflatex t.tex
       if: always()
