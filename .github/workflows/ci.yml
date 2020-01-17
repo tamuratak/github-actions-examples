@@ -22,4 +22,4 @@ jobs:
         ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
-        pdflatex -interaction=nonstopmode t.tex
+        pdflatex --miktex-admin -interaction=nonstopmode t.tex
