@@ -26,4 +26,5 @@ jobs:
       run: |
         unzip install-tl.zip -d .
         ./install-tl-windows.bat --profile texlive.profile
+      if: always()
       shell: cmd
