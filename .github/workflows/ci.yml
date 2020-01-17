@@ -15,8 +15,8 @@ jobs:
         unzip miktexsetup-x64.zip
     - name: Install MiKTeX
       run: |
-        miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
-        miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential install
+        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
+        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
         pdflatex t.tex
