@@ -11,6 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a multi-line script
       run: |
+        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.bat
     - name: Run a install-tl-windows.bat
