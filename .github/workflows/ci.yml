@@ -13,21 +13,23 @@ jobs:
       run: |
         echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
         echo "##[add-path]D:\tmp\texlive\bin\win32"
-    - name: Run a multi-line script
+    - name: Download install-tl.zip
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
         unzip -q install-tl.zip
         mv install-tl-2* install-tl-dir
-    - name: Run a install-tl-windows.bat
+    - name: Run install-tl-windows.bat
       run: |
         install-tl-dir\install-tl-windows.bat --profile texlive.profile
       if: always()
       shell: cmd
-    - name: Run tlmgr
+    - name: Run tlmgr install
       run: |
         tlmgr update --self
         tlmgr install latex-bin platex uplatex tex xetex
         tlmgr install amsmath graphics tools
         ls -l D:\tmp\texlive\bin\win32
-        pdflatex t.tex
       if: always()
+    - name: Run pdflatex
+      run: |
+        pdflatex t.tex
