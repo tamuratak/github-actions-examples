@@ -21,8 +21,9 @@ jobs:
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
         unzip -q install-tl.zip
+        mv install-tl-2* install-tl-dir
     - name: Run a install-tl-windows.bat
       run: |
-        install-tl-20200116\install-tl-windows.bat --profile texlive.profile
+        install-tl-dir\install-tl-windows.bat --profile texlive.profile
       if: always()
       shell: cmd
