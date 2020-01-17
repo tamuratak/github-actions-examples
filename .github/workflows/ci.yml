@@ -12,7 +12,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe
-        pwd
-        ls -l install-tl-windows.exe
-        echo test, and deploy your project
+        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.bat
+        install-tl-windows.bat --profile texlive.profile
       shell: bash
