@@ -9,10 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
     - name: Run a multi-line script
       run: |
         echo %CD%
         bitsadmin.exe /transfer download http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe %CD%\install-tl-windows.exe
         echo test, and deploy your project
+      shell: cmd
