@@ -9,9 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Perl
+    - name: Set up PATH
       run: |
         echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
+        echo "##[add-path]D:\tmp\texlive\bin\win32"
     - name: Run a multi-line script
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
@@ -28,5 +29,6 @@ jobs:
         D:\tmp\texlive\bin\win32\tlmgr.bat update --self
         D:\tmp\texlive\bin\win32\tlmgr.bat install latex-bin platex uplatex tex xetex
         D:\tmp\texlive\bin\win32\tlmgr.bat install amsmath graphics tools
+        ls -l D:\tmp\texlive\bin\win32
         pdflatex t.tex
       if: always()
