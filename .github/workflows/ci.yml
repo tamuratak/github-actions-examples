@@ -31,6 +31,7 @@ jobs:
         ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Install MiKTeX packages
+      run: |
         ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
