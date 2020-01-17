@@ -21,8 +21,11 @@ jobs:
     - name: Run a install-tl-windows.bat
       run: |
         install-tl-dir\install-tl-windows.bat --profile texlive.profile
+      if: always()
+      shell: cmd
+    - name: Run tlmgr
+      run: |
         tlmgr update --self
         tlmgr install latex-bin platex uplatex tex xetex
         tlmgr install amsmath graphics tools
       if: always()
-      shell: cmd
