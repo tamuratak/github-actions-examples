@@ -1,24 +1,36 @@
 name: CI
-
+env:
+  cache-version: v1
 on: [push]
 
 jobs:
   build:
 
     runs-on: windows-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
     - name: Set up PATH
       run: |
         echo "##[add-path]C:\Program Files\MiKTeX 2.9\miktex\bin\x64"
+    - name: Cache MiKTeX
+      id: cache-miktex
+      uses: actions/cache@v1
+      with:
+        path: D:\temp\miktex
+        key: ${{ env.cache-version }}-${{ runner.os }}-miktex
+        restore-keys: |
+          ${{ env.cache-version }}-${{ runner.os }}-miktex   
     - name: Donwload MiKTeX
       run: |
         curl -O -L https://miktex.org/download/win/miktexsetup-x64.zip
         unzip miktexsetup-x64.zip
-    - name: Install MiKTeX
+      if: steps.cache-miktex.outputs.cache-hit != 'true'
+    - name: Download MiKTeX packages
       run: |
         ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
+      if: steps.cache-miktex.outputs.cache-hit != 'true'
+    - name: Install MiKTeX packages
         ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
