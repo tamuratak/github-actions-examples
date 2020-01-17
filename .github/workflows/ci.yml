@@ -12,7 +12,7 @@ jobs:
     - name: Set up PATH
       run: |
         echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
-        echo "##[add-path]D:\tmp\texlive\bin\win32"
+        echo "##[add-path]D:\texlive\bin\win32"
     - name: Download install-tl.zip
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
@@ -28,7 +28,7 @@ jobs:
         tlmgr update --self
         tlmgr install latex-bin platex uplatex tex xetex
         tlmgr install amsmath graphics tools
-        ls -l D:\tmp\texlive\bin\win32
+        ls -l D:\texlive\bin\win32
       if: always()
     - name: Run pdflatex
       run: |
