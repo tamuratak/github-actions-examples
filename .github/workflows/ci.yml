@@ -28,11 +28,11 @@ jobs:
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Download MiKTeX packages
       run: |
-        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
+        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=basic download
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Install MiKTeX packages
       run: |
-        ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=essential install
+        ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=basic install
     - name: Run pdflatex
       run: |
         pdflatex -interaction=nonstopmode t.tex
