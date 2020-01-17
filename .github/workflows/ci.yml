@@ -9,9 +9,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Perl
+    - name: Donwload MiKTeX
       run: |
-        choco install strawberryperl
-        echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
-    - name: perl -V
-      run: perl -V
+        curl -O -L https://miktex.org/download/win/miktexsetup-x64.zip
+        unzip miktexsetup-x64.zip
+    - name: Install MiKTeX
+      run: |
+        miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
+        miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential install
+    - name: Run pdflatex
+      run: |
+        pdflatex t.tex
