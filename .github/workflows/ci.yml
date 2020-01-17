@@ -13,10 +13,6 @@ jobs:
       run: |
         choco install strawberryperl
         echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
-    - name: perl -V
-      run: perl -V
-    - name: Install Dependencies
-      run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
     - name: Run a multi-line script
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
@@ -25,5 +21,6 @@ jobs:
     - name: Run a install-tl-windows.bat
       run: |
         install-tl-dir\install-tl-windows.bat --profile texlive.profile
+        tlmgr update --self
       if: always()
       shell: cmd
