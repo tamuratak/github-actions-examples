@@ -19,12 +19,13 @@ jobs:
       run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
     - name: Run a multi-line script
       run: |
-        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
+        unzip install-tl.zip
+        cd install-tl-*
+        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.bat
     - name: Run a install-tl-windows.bat
       run: |
-        unzip install-tl.zip -d .
         ./install-tl-windows.bat --profile texlive.profile
       if: always()
       shell: cmd
