@@ -13,5 +13,7 @@ jobs:
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.bat
-        install-tl-windows.bat --profile texlive.profile
-      shell: bash
+    - name: Run a install-tl-windows.bat
+      run: |
+        ./install-tl-windows.bat --profile texlive.profile
+      shell: cmd
