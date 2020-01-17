@@ -20,12 +20,9 @@ jobs:
     - name: Run a multi-line script
       run: |
         curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
-        unzip install-tl.zip
-        cd install-tl-*
-        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl
-        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.bat
+        unzip -q install-tl.zip
     - name: Run a install-tl-windows.bat
       run: |
-        ./install-tl-windows.bat --profile texlive.profile
+        install-tl-20200116\install-tl-windows.bat --profile texlive.profile
       if: always()
       shell: cmd
