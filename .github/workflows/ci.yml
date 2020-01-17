@@ -23,3 +23,4 @@ jobs:
     - name: Run pdflatex
       run: |
         pdflatex --miktex-admin -interaction=nonstopmode t.tex
+      shell: cmd
