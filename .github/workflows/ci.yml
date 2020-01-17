@@ -13,5 +13,5 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
+        bitsadmin.exe /transfer download http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe %cd%\install-tl-windows.exe
         echo test, and deploy your project.
