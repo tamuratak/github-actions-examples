@@ -19,8 +19,7 @@ jobs:
     - name: Install MiKTeX
       run: |
         ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
-        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential install
+        ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
         pdflatex --miktex-admin -interaction=nonstopmode t.tex
-      shell: cmd
