@@ -10,7 +10,15 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
-    - name: Set up PATH
+    - name: Cache Choco
+      id: cache-choco
+      uses: actions/cache@v1
+      with:
+        path: C:\ProgramData\chocolatey
+        key: ${{ env.cache-version }}-${{ runner.os }}-choco
+        restore-keys: |
+          ${{ env.cache-version }}-${{ runner.os }}-choco   
+    - name: Set up MiKTeX
       run: |
         choco install miktex
         echo "##[add-path]C:\Program Files\MiKTeX 2.9\miktex\bin\x64"
