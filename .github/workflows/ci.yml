@@ -1,6 +1,6 @@
 name: CI
 env:
-  cache-version: v1
+  cache-version: v2
 on: [push]
 
 jobs:
