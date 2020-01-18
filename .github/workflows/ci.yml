@@ -14,7 +14,7 @@ jobs:
       id: cache-choco
       uses: actions/cache@v1
       with:
-        path: C:\ProgramData\chocolatey
+        path: C:\Users\runneradmin\AppData\Local\Temp\chocolatey
         key: ${{ env.cache-version }}-${{ runner.os }}-choco
         restore-keys: |
           ${{ env.cache-version }}-${{ runner.os }}-choco   
