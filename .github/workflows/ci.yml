@@ -45,3 +45,13 @@ jobs:
     - name: Run latexmk
       run: |
         latexmk t.tex
+  linux:
+    runs-on: ubuntu-latest
+    - name: Install TeXLive
+      run: |
+        sudo apt update
+        sudo apt install -y texlive-base latexmk
+    - name: Run pdflatex
+      run: |
+        pdflatex t.tex
+        rm t.pdf
