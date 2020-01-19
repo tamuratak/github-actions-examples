@@ -44,7 +44,7 @@ jobs:
         rm t.pdf
     - name: Run latexmk
       run: |
-        latexmk t.tex
+        latexmk -pdf t.tex
   linux:
     runs-on: ubuntu-latest
     steps:
@@ -57,3 +57,6 @@ jobs:
       run: |
         pdflatex t.tex
         rm t.pdf
+    - name: Run latexmk
+      run: |
+        latexmk -pdf t.tex
