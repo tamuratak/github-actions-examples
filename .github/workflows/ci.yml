@@ -22,7 +22,7 @@ jobs:
           ${{ env.cache-version }}-${{ runner.os }}-miktex   
     - name: Donwload MiKTeX
       run: |
-        curl -O -L https://miktex.org/download/win/miktexsetup-x64.zip
+        curl -s -O -L https://miktex.org/download/win/miktexsetup-x64.zip
         unzip miktexsetup-x64.zip
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Download MiKTeX packages
@@ -35,3 +35,4 @@ jobs:
     - name: Run pdflatex
       run: |
         runas /trustlevel:0x20000 "pdflatex t.tex"
+        ls -l
