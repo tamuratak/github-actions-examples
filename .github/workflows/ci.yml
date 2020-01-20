@@ -68,7 +68,6 @@ jobs:
     - name: Run install-tl
       run: |
         install-tl-dir/install-tl --profile texlive_linux.profile
-        echo $PATH
       if: steps.cache-texlive.outputs.cache-hit != 'true'
     - name: Run tlmgr install
       run: |
