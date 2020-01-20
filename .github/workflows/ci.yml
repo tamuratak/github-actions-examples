@@ -36,4 +36,4 @@ jobs:
     - name: Run pdflatex
       run: |
         runas /trustlevel:0x20000 "pdflatex t.tex"
-        ls -l
+        ls -l .
