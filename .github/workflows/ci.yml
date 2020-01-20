@@ -33,4 +33,4 @@ jobs:
         ./miktexsetup --verbose --shared=no --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
-        pdflatex --miktex-admin t.tex
+        pdflatex t.tex
