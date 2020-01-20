@@ -22,7 +22,7 @@ jobs:
           ${{ env.cache-version }}-${{ runner.os }}-texlive-essential
     - name: Download install-tl.zip
       run: |
-        curl -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
+        curl -s -O -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
         unzip -q install-tl.zip
         mv install-tl-2* install-tl-dir
       if: steps.cache-texlive.outputs.cache-hit != 'true'
@@ -50,12 +50,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: Set up PATH
       run: |
-        echo "::add-path::/usr/local/texlive/bin/x86_64-linux"
+        echo "::add-path::/tmp/texlive/bin/x86_64-linux"
     - name: Cache TeX Live
       id: cache-texlive
       uses: actions/cache@v1
       with:
-        path: /usr/local/texlive
+        path: /tmp/texlive
         key: ${{ env.cache-version }}-${{ runner.os }}-texlive-essential
         restore-keys: |
           ${{ env.cache-version }}-${{ runner.os }}-texlive-essential
@@ -68,8 +68,6 @@ jobs:
     - name: Run install-tl
       run: |
         sudo install-tl-dir/install-tl --profile texlive_linux.profile
-        ls -l /usr/local/texlive/bin/x86_64-linux
-        ls -l /usr/local/texlive/bin/
         echo $PATH
       if: steps.cache-texlive.outputs.cache-hit != 'true'
     - name: Run tlmgr install
