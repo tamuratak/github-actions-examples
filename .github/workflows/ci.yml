@@ -6,6 +6,7 @@ on: [push]
 jobs:
   windows:
     runs-on: windows-latest
+    timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
     - name: Set up PATH
@@ -46,6 +47,7 @@ jobs:
         latexmk -pdf t.tex
   linux:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
     - name: Set up PATH
@@ -84,6 +86,7 @@ jobs:
         latexmk -pdf t.tex
   macosx:
     runs-on: macos-latest
+    timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
     - name: Set up PATH
