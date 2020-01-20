@@ -35,5 +35,4 @@ jobs:
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Run pdflatex
       run: |
-        runas /trustlevel:0x20000 "pdflatex t.tex"
-        ls -l .
+        runas /trustlevel:0x20000 "pdflatex -help"
