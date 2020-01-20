@@ -26,13 +26,11 @@ jobs:
         unzip miktexsetup-x64.zip
     - name: Download MiKTeX packages
       run: |
-        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=basic download
+        ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
       if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Install MiKTeX packages
       run: |
-        ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=basic install
+        ./miktexsetup --verbose --shared --use-registry --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
-        runas /trustlevel:0x20000 "pdflatex D:\a\github-actions-examples\github-actions-examples\t.tex"
-        ls -l .
-      shell: cmd
+        pdflatex t.tex
