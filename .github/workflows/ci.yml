@@ -34,4 +34,4 @@ jobs:
         ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=basic install
     - name: Run pdflatex
       run: |
-        pdflatex --miktex-admin -interaction=nonstopmode t.tex
+        runas /trustlevel:0x20000 "pdflatex t.tex"
