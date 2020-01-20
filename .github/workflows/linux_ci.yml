@@ -1,17 +1,17 @@
-name: CI on macOS
+name: CI on Linux
 env:
   cache-version: v5
 on: [push]
 
 jobs:
-  macosx:
-    runs-on: macos-latest
+  linux:
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v1
     - name: Set up PATH
       run: |
-        echo "::add-path::/tmp/texlive/bin/x86_64-darwin"
+        echo "::add-path::/tmp/texlive/bin/x86_64-linux"
     - name: Cache TeX Live
       id: cache-texlive
       uses: actions/cache@v1
@@ -28,7 +28,7 @@ jobs:
       if: steps.cache-texlive.outputs.cache-hit != 'true'
     - name: Run install-tl
       run: |
-        install-tl-dir/install-tl --profile texlive_mac.profile
+        install-tl-dir/install-tl --profile texlive_linux.profile
       if: steps.cache-texlive.outputs.cache-hit != 'true'
     - name: Run tlmgr install
       run: |
