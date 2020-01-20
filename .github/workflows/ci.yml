@@ -35,3 +35,4 @@ jobs:
       run: |
         runas /trustlevel:0x20000 "pdflatex D:\a\github-actions-examples\github-actions-examples\t.tex"
         ls -l .
+      shell: cmd
