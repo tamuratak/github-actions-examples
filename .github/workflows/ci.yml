@@ -32,6 +32,7 @@ jobs:
     - name: Install MiKTeX packages
       run: |
         ./miktexsetup --verbose --shared --local-package-repository=D:\temp\miktex --package-set=basic install
+      if: steps.cache-miktex.outputs.cache-hit != 'true'
     - name: Run pdflatex
       run: |
         runas /trustlevel:0x20000 "pdflatex t.tex"
