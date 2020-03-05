@@ -24,4 +24,5 @@ jobs:
         echo "##[add-path]C:\Program Files\MiKTeX 2.9\miktex\bin\x64"
     - name: Run pdflatex
       run: |
-        pdflatex --miktex-admin -interaction=nonstopmode t.tex
+        initexmf --set-config-value [Core]AutoAdmin=t
+        pdflatex -interaction=nonstopmode t.tex
