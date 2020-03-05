@@ -33,4 +33,5 @@ jobs:
         ./miktexsetup --verbose --shared=no --local-package-repository=D:\temp\miktex --package-set=essential install
     - name: Run pdflatex
       run: |
+        initexmf --set-config-value [Core]AutoAdmin=t
         pdflatex t.tex
