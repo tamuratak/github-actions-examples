@@ -22,8 +22,8 @@ jobs:
           ${{ env.cache-version }}-${{ runner.os }}-miktex
     - name: Donwload MiKTeX
       run: |
-        curl -s -O -L https://miktex.org/download/win/miktexsetup-x64.zip
-        unzip miktexsetup-x64.zip
+        curl -s -O -L https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/miktexsetup-2.9.6942_2-x64.zip
+        unzip miktexsetup-2.9.6942_2-x64.zip
     - name: Download MiKTeX packages
       run: |
         ./miktexsetup --verbose --local-package-repository=D:\temp\miktex --package-set=essential download
