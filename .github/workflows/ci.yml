@@ -37,11 +37,10 @@ jobs:
         tlmgr install latex-bin platex uplatex tex xetex
         tlmgr install amsmath graphics tools latexmk
       if: steps.cache-texlive.outputs.cache-hit != 'true'
-    - name: Run pdflatex
-      run: |
-        pdflatex t.tex
-        rm t.pdf
-    - name: Run latexmk
-      run: |
-        latexmk -pdf t.tex
-
+    - run: |
+        perl -MCPAN -e 'install "Log::Dispatch"'
+        perl -MCPAN -e 'install "Log::Log4perl"'
+        perl -MCPAN -e 'install "Unicode::GCString"'
+        perl -MCPAN -e 'install "File::HomeDir"'
+        perl -MCPAN -e 'install "YAML::Tiny"'
+        latexindent t.tex
