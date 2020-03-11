@@ -45,5 +45,5 @@ jobs:
         sudo perl -MCPAN -e 'install "Log::Log4perl"'
         sudo perl -MCPAN -e 'install "Unicode::GCString"'
         sudo perl -MCPAN -e 'install "File::HomeDir"'
-        sudo perl -MCPAN -e 'install "YAML/Tiny"'
+        sudo perl -MCPAN -e 'install "YAML::Tiny"'
         latexindent t.tex
