@@ -42,4 +42,4 @@ jobs:
         rm t.pdf
     - name: Run latexmk
       run: |
-        latexmk -pdf t.tex
+        latexindent t.tex
