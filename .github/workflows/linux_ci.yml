@@ -41,6 +41,8 @@ jobs:
         rm t.pdf
     - name: Run latexmk
       run: |
+        sudo perl -MCPAN -e 'install "Log::Dispatch"'
         sudo perl -MCPAN -e 'install "Log::Log4perl"'
+        sudo perl -MCPAN -e 'install "Unicode::GCString"'
         sudo perl -MCPAN -e 'install "File::HomeDir"'
         latexindent t.tex
