@@ -22,4 +22,4 @@ jobs:
         sudo mpm --verbose --admin --upgrade --package-level=essential
         sudo pdflatex t.tex
     - name: Run tests
-      run: pdflatex t.tex
+      run: pdflatex s.tex
