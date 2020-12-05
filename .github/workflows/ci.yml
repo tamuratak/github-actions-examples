@@ -19,5 +19,4 @@ jobs:
         sudo miktexsetup --shared=yes finish
         sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
     - name: Run tests
-      with:
-        run: pdflatex t.tex
+      run: pdflatex t.tex
