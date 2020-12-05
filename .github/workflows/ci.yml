@@ -20,5 +20,6 @@ jobs:
         sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
         sudo mpm --verbose --admin --update
         sudo mpm --verbose --admin --upgrade --package-level=essential
+        sudo pdflatex t.tex
     - name: Run tests
       run: pdflatex t.tex
