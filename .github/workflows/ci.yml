@@ -19,6 +19,6 @@ jobs:
         sudo miktexsetup --shared=yes finish
         sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
         sudo mpm --verbose --admin --update
-        sudo mpm --verbose --admin --upgrade
+        sudo mpm --verbose --admin --upgrade --package-level=complete
     - name: Run tests
       run: pdflatex t.tex
